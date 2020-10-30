@@ -1,0 +1,31 @@
+<div ng-controller="HomeController as vm" class="container" ng-init="vm.iniciar()">
+    <h1>HOME</h1>
+    <p>
+        Bem-Vindo a
+        <strong class="text-info">AutoLocadoraApp</strong>!
+        O melhor App para alugar um automóvel.
+    </p>
+
+    <h2 class="mt-5">Nosso Catálogo</h2>
+    <hr class="mt-1 bg-primary">
+    <div class="row">
+        <div class="col-4" ng-repeat="carro in vm.listaCarros track by $index">
+            <div class="card mb-4" style="width: 18rem;">
+                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{carro.modelo}}
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        {{carro.marca}}
+                    </h6>
+                    <p>
+                        <strong>Ano: </strong> {{carro.ano}} &nbsp; | &nbsp;
+                        <strong>Placa: </strong> {{carro.placa | placaComHifen}}
+                    </p>
+                    <a ng-click="" class="btn btn-primary text-center">Alugar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

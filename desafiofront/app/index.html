@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR" ng-app="autoLocadoraApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Locadora App</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.css">
+    <link rel="stylesheet" href="auto-locadora.css">
+    <script src="http://localhost:35729/livereload.js"></script>
+
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-route/angular-route.js"></script>
+
+    <script src="auto-locadora.module.js"></script>
+    <script src="auto-locadora.routes.js"></script>
+    <script src="auto-locadora.service.js"></script>
+
+    <script src="utilities/constantes.js"></script>
+    <script src="utilities/filtros.js"></script>
+    <script src="utilities/helper.factory.js"></script>
+
+    <script src="header.controller.js"></script>
+    <script src="home.controller.js"></script>
+</head>
+
+<body>
+
+    <header ng-include="'./header.tpl.html'"></header>
+
+    <ng-view></ng-view>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
