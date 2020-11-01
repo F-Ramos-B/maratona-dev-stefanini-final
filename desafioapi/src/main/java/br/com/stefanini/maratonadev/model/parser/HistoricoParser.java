@@ -27,6 +27,7 @@ public class HistoricoParser extends AbstractParser<Historico, HistoricoDTO> {
 		Carro carro = entidade.getCarro();
 		Cliente cliente = entidade.getCliente();
 		dto.setDataAluguel(entidade.getDataAluguel());
+		dto.setId(entidade.getId());
 		
 		// Carro
 		dto.setPlacaCarro(carro.getPlaca());
