@@ -1,0 +1,41 @@
+<!-- Modal HISTORICO -->
+<div class="modal fade" id="historicoModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Histórico cliente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div ng-if="!vm.historicos.length">
+          <p>Nenhum resultado.</p>
+        </div>
+        <table ng-if="vm.historicos.length" class="table table-sm table-bordered text-center texto-small">
+          <thead class="bg-dark">
+            <tr>
+              <th scope="col">Placa carro</th>
+              <th scope="col">Modelo carro</th>
+              <th scope="col">Marca carro</th>
+              <th scope="col">Ano carro</th>
+              <th scope="col">Data aluguel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="historico in vm.historicos track by historico.id">
+              <td>{{ historico.placaCarro }}</td>
+              <td>{{ historico.modeloCarro }}</td>
+              <td>{{ historico.marcaCarro }}</td>
+              <td>{{ historico.anoCarro }}</td>
+              <td>{{ historico.dataAluguel }}</td>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,17 @@
         O melhor App para alugar um automóvel.
     </p>
 
+    <div class="col-12 col-sm-12 col-md-12">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Alugar com:</span>
+            </div>
+            <select id="cliente" class="custom-select"
+                ng-options="cliente as cliente.nome for cliente in vm.listaClientes track by cliente.id"
+                ng-model="vm.clienteSelecionado"></select>
+        </div>
+    </div>
+
     <h2 class="mt-5">Nosso Catálogo</h2>
     <hr class="mt-1 bg-primary">
     <div class="row">
@@ -23,7 +34,14 @@
                         <strong>Ano: </strong> {{carro.ano}} &nbsp; | &nbsp;
                         <strong>Placa: </strong> {{carro.placa | placaComHifen}}
                     </p>
-                    <a ng-click="" class="btn btn-primary text-center">Alugar</a>
+                    <div ng-if="vm.clienteSelecionado">
+                        <a ng-if="!carro.alugado && !vm.clienteSelecionado.placaCarro" ng-click="vm.alugar(carro.placa)" class="btn btn-primary text-center">Alugar</a>
+                        <strong ng-if="carro.alugado && carro.idCliente !== vm.clienteSelecionado.id">INDISPONÍVEL, ALUGADO POR {{ carro.nomeCliente }}</strong>
+                        <a ng-if="carro.alugado && carro.idCliente === vm.clienteSelecionado.id" ng-click="vm.devolver()" class="btn btn-danger text-center">Devolver</a>
+                    </div>
+                    <div ng-if="!vm.clienteSelecionado">
+                        <small>Selecione um cliente para manipular carros</small>
+                    </div>
                 </div>
             </div>
         </div>

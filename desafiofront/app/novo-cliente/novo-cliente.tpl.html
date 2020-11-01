@@ -1,0 +1,93 @@
+<div ng-controller="novoClienteController as vm" class="container" ng-init="vm.init()">
+  <h1>HOME</h1>
+  <p>
+    Bem-Vindo a
+    <strong class="text-info">AutoLocadoraApp</strong>!
+    O melhor App para alugar um automóvel.
+  </p>
+
+  <h2 class="mt-5">Novo cliente</h2>
+  <hr class="mt-1 bg-primary">
+  <form ng-submit="vm.criarUsuario()">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" class="form-control" id="nome" ng-model="vm.cliente.nome" minlength="3" maxlength="100"
+            required pattern="^[A-Za-z -]+$" placeholder="Digite um nome (somente texto e espaços)">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input type="text" class="form-control" id="cpf" ng-model="vm.cliente.cpf" required pattern="[0-9]{11}" placeholder="Digite o CPF (somente números)">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" class="form-control" id="email" ng-model="vm.cliente.email" required
+            placeholder="Digite um e-mail">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="Contato">Contato</label>
+          <input type="tel" class="form-control" id="contato" ng-model="vm.cliente.contato" required placeholder="Digite um telefone">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-12">
+        <div class="form-group">
+          <label for="cep">CEP</label>
+          <input type="text" class="form-control" id="cep" ng-model="vm.cliente.cep" required
+            placeholder="Digite um CEP (sem pontos)">
+        </div>
+        <button type="button" class="btn btn-success" ng-click="vm.buscarCEP()">Buscar CEP</button>
+        <hr class="bg-primary">
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="logradouro">Logradouro</label>
+          <input type="text" class="form-control" id="logradouro" ng-model="vm.cliente.logradouro">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="complemento">Complemento</label>
+          <input type="text" class="form-control" id="complemento" ng-model="vm.cliente.complemento">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="bairro">Bairro</label>
+          <input type="text" class="form-control" id="bairro" ng-model="vm.cliente.bairro" required>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <input type="text" class="form-control" id="cidade" ng-model="vm.cliente.cidade" required>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <div class="form-group">
+          <label for="uf">UF</label>
+          <input type="text" class="form-control" id="uf" ng-model="vm.cliente.uf" required>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-12">
+        <button type="submit" class="btn btn-success btn-block">Novo</button>
+      </div>
+    </div>
+  </form>
+</div>

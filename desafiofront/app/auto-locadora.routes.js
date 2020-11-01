@@ -13,6 +13,12 @@
             .when('/home', {
                 templateUrl: 'home.tpl.html',
             })
+            .when('/clientes', {
+                templateUrl: 'clientes/clientes.tpl.html',
+            })
+            .when('/novo-cliente', {
+                templateUrl: 'novo-cliente/novo-cliente.tpl.html',
+            })
             .otherwise({
                 redirectTo: '/home'
             });

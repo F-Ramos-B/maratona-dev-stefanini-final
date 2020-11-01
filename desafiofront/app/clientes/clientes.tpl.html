@@ -1,0 +1,37 @@
+<div ng-controller="clienteController as vm" class="container" ng-init="vm.init()">
+  <h1>HOME</h1>
+  <p>
+    Bem-Vindo a
+    <strong class="text-info">AutoLocadoraApp</strong>!
+    O melhor App para alugar um automóvel.
+  </p>
+
+  <h2 class="mt-5">Clientes</h2>
+  <hr class="mt-1 bg-primary">
+  
+  <button type="button" class="btn btn-success m-2" ng-click="vm.go('/novo-cliente')">Novo</button>
+
+  <table class="table table-sm table-bordered text-center texto-small">
+    <thead class="bg-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">CPF</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Carro alugado</th>
+        <th scope="col">Ver histórico</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="cliente in vm.listaClientes track by cliente.id">
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.cpf }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.modeloCarro || 'Nenhum' }}</td>
+        <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#historicoModal" ng-click="vm.listarHistorico(cliente.id)">Ver histórico</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-include src="'clientes/modal-historico.tpl.html'"></ng-include>
+
+</div>
