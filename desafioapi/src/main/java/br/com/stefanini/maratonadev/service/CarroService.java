@@ -1,14 +1,14 @@
 package br.com.stefanini.maratonadev.service;
 
-import br.com.stefanini.maratonadev.dao.CarroDao;
-import br.com.stefanini.maratonadev.dto.CarroDto;
-import br.com.stefanini.maratonadev.model.Carro;
-import br.com.stefanini.maratonadev.model.parser.CarroParser;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import java.util.List;
-import java.util.stream.Collectors;
+
+import br.com.stefanini.maratonadev.dao.CarroDAO;
+import br.com.stefanini.maratonadev.dto.CarroDTO;
+import br.com.stefanini.maratonadev.model.Carro;
+import br.com.stefanini.maratonadev.model.parser.CarroParser;
 
 /**
  * @author danilodorgam
@@ -17,11 +17,23 @@ import java.util.stream.Collectors;
  */
 @RequestScoped
 public class CarroService {
-    @Inject
-    CarroDao dao;
 
+	@Inject
+	CarroDAO carroDAO;
 
-    public List<CarroDto> listar(){
-        return dao.listar().stream().map(CarroParser.get()::dto).collect(Collectors.toList());
-    }
+	public List<CarroDTO> listar() {
+		return CarroParser.get().toDTOList(carroDAO.listar());
+	}
+
+	public Carro recuperarPorPlaca(String placa) {
+		return carroDAO.recuperarPorPlaca(placa);
+	}
+	
+	public CarroDTO recuperarPorPlacaDTO(String placa) {
+		return CarroParser.get().toDTO(this.recuperarPorPlaca(placa));
+	}
+
+	public void inserir(Carro carro) {
+		carroDAO.inserir(carro);
+	}
 }
